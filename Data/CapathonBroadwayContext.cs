@@ -23,7 +23,9 @@ public partial class CapathonBroadwayContext : DbContext
         {
             entity.HasKey(e => e.AId);
 
-            entity.Property(e => e.AId).HasColumnName("a_id");
+            entity.Property(e => e.AId)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("a_id");
 
             entity.Property(e => e.CId).HasColumnName("c_id");
             entity.Property(e => e.DId).HasColumnName("d_id");
@@ -41,7 +43,7 @@ public partial class CapathonBroadwayContext : DbContext
             entity.HasKey(e => e.CId);
 
             entity.Property(e => e.CId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("c_id");
             entity.Property(e => e.Address)
                 .HasMaxLength(100)
@@ -63,7 +65,7 @@ public partial class CapathonBroadwayContext : DbContext
             entity.HasKey(e => e.DId);
 
             entity.Property(e => e.DId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("d_id");
             entity.Property(e => e.UId)
                 .HasColumnName("u_id");
@@ -103,7 +105,7 @@ public partial class CapathonBroadwayContext : DbContext
             entity.HasKey(e => e.UId);
 
             entity.Property(e => e.UId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("u_id");
             entity.Property(e => e.CId)
                 .HasColumnName("c_id");
