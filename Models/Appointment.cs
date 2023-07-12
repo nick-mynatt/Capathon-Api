@@ -17,9 +17,9 @@ public partial class Appointment
 
     public int? UId { get; set; }
 
-    public virtual CareCenter? CIdNavigation { get; set; }
+    // public virtual CareCenter? CIdNavigation { get; set; }
 
-    public virtual Dependent? DIdNavigation { get; set; }
+    // public virtual Dependent? DIdNavigation { get; set; }
 
-    public virtual User? UIdNavigation { get; set; }
+    // public virtual User? UIdNavigation { get; set; }
 }

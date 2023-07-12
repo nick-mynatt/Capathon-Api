@@ -21,7 +21,9 @@ public partial class CapathonBroadwayContext : DbContext
     {
         modelBuilder.Entity<Appointment>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasKey(e => e.AId);
+
+            entity.Property(e => e.AId).HasColumnName("a_id");
 
             entity.Property(e => e.CId).HasColumnName("c_id");
             entity.Property(e => e.DId).HasColumnName("d_id");
@@ -32,18 +34,6 @@ public partial class CapathonBroadwayContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("pickup_time");
             entity.Property(e => e.UId).HasColumnName("u_id");
-
-            entity.HasOne(d => d.CIdNavigation).WithMany()
-                .HasForeignKey(d => d.CId)
-                .HasConstraintName("FK_Appointments_CareCenters");
-
-            entity.HasOne(d => d.DIdNavigation).WithMany()
-                .HasForeignKey(d => d.DId)
-                .HasConstraintName("FK_Appointments_Dependents");
-
-            entity.HasOne(d => d.UIdNavigation).WithMany()
-                .HasForeignKey(d => d.UId)
-                .HasConstraintName("FK_Appointments_Users");
         });
 
         modelBuilder.Entity<CareCenter>(entity =>

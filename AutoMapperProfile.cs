@@ -1,4 +1,5 @@
 using AutoMapper;
+using Capathon.Dtos.Appointment;
 using Capathon.Dtos.CareCenter;
 using Capathon.Dtos.User;
 
@@ -15,6 +16,9 @@ namespace Capathon
 
             CreateMap<User, GetUserDto>();
             CreateMap<AddUserDto, User>();
+
+            CreateMap<Appointment, GetAppointmentDto>();
+            CreateMap<AddAppointmentDto, Appointment>();
         }
     }
 }
