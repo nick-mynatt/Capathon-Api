@@ -17,9 +17,17 @@ public partial class Dependent
 
     public string? Gender { get; set; }
 
-    public string? Accomodations { get; set; }
+    public string? AuthorizedPickup { get; set; }
 
     public string? MedicalInfo { get; set; }
 
-    public virtual User UIdNavigation { get; set; } = null!;
+    public string? Accomodations { get; set; }
+
+    public bool? SpecialNeeds { get; set; }
+    
+    public bool? DietaryRestrictions { get; set; }
+
+    public bool? Allergies { get; set; }
+
+    // public virtual User UIdNavigation { get; set; } = null!;
 }

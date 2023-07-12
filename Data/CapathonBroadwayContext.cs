@@ -65,31 +65,37 @@ public partial class CapathonBroadwayContext : DbContext
             entity.Property(e => e.DId)
                 .ValueGeneratedNever()
                 .HasColumnName("d_id");
-            entity.Property(e => e.Accomodations)
-                .IsUnicode(false)
-                .HasColumnName("accomodations");
-            entity.Property(e => e.Age).HasColumnName("age");
+            entity.Property(e => e.UId)
+                .HasColumnName("u_id");
             entity.Property(e => e.FirstName)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("firstName");
-            entity.Property(e => e.Gender)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("gender");
             entity.Property(e => e.LastName)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("lastName");
+            entity.Property(e => e.Age)
+                .HasColumnName("age");
+            entity.Property(e => e.Gender)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("gender");
+            entity.Property(e => e.AuthorizedPickup)
+                .IsUnicode(false)
+                .HasColumnName("authorizedPickup");
             entity.Property(e => e.MedicalInfo)
                 .IsUnicode(false)
                 .HasColumnName("medicalInfo");
-            entity.Property(e => e.UId).HasColumnName("u_id");
-
-            entity.HasOne(d => d.UIdNavigation).WithMany(p => p.Dependents)
-                .HasForeignKey(d => d.UId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Dependents_Users");
+            entity.Property(e => e.Accomodations)
+                .IsUnicode(false)
+                .HasColumnName("accomodations");
+            entity.Property(e => e.SpecialNeeds)
+                .HasColumnName("specialNeeds");
+            entity.Property(e => e.DietaryRestrictions)
+                .HasColumnName("dietaryRestrictions");
+            entity.Property(e => e.Allergies)
+                .HasColumnName("allergies");
         });
 
         modelBuilder.Entity<User>(entity =>
