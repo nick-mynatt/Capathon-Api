@@ -41,7 +41,7 @@ namespace Capathon.Services
         public async Task<ServiceResponse<GetUserDto>> GetUserById(int id)
         {
             var serviceResponse = new ServiceResponse<GetUserDto>();
-            var user = _dataContext.Users.FirstOrDefaultAsync(i => i.CId == id);
+            var user = await _dataContext.Users.FirstOrDefaultAsync(i => i.CId == id);
             serviceResponse.Data = _mapper.Map<GetUserDto>(user);
             return serviceResponse;
         }

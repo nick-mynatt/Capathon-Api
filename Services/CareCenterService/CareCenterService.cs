@@ -36,8 +36,8 @@ namespace Capathon.Services
         {
 
             var serviceResponse = new ServiceResponse<GetCareCenterDto>();
-            var careCenter = _dataContext.CareCenters.FirstOrDefaultAsync(i => i.CId == id);
-            serviceResponse.Data = _mapper.Map<GetCareCenterDto>(careCenter);
+            var dbCareCenter = await _dataContext.CareCenters.FirstOrDefaultAsync(i => i.CId == id);
+            serviceResponse.Data = _mapper.Map<GetCareCenterDto>(dbCareCenter);
             return serviceResponse;
         }
 
