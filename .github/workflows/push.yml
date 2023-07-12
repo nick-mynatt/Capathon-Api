@@ -1,0 +1,12 @@
+name: push
+
+on: 
+  push:
+    branches:
+    - main
+env:
+  SOLUTION_FILE_PATH: .  
+  BUILD_CONFIGURATION: Release
+  
+permissions:
+  contents: write
